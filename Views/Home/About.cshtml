@@ -1,0 +1,17 @@
+﻿@using URLShortener.Enums
+
+@model string
+@{
+    ViewData["Title"] = "About";
+    var isAdmin = User.IsInRole(RolesEnum.Admin.ToString());
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="SaveText" asp-controller="Home"> 
+
+    <textarea class="form-control mb-3" id="textArea" rows="6" @(isAdmin ? "" : "disabled readonly") name="text">@Model</textarea>
+
+
+    <button type="submit" class="btn btn-primary mb-3" @(isAdmin ? "" : "hidden") >Save</button>
+</form>

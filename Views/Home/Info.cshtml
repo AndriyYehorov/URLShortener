@@ -1,0 +1,39 @@
+﻿@model URL
+
+@{
+    ViewData["Title"] = "Info";
+}
+
+<div>
+    <h1 class="mb-3">@ViewData["Title"]</h1>
+
+    <table class="table table-striped-columns">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Long URL</th>
+                <th scope="col">Short URL</th>
+                <th scope="col">CreatorId</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col"></th>
+            </tr>
+        <thead>
+        <tbody>
+            @{
+                if (Model != null)
+                {
+                <tr>
+                    <td scope="col">@Model.Id</td>
+                    <td scope="col">@Model.LongURL</td>
+                    <td scope="col">@Model.ShortURL</td>
+                    <td scope="col">@Model.CreatorId</td>
+                    <td scope="col">@Model.CreationDate</td>                            
+                </tr>                            
+                }
+            }
+        </tbody>
+    </table>
+
+    <a asp-controller="Home" asp-action="Index">Back to Table page</a>
+
+</div>
